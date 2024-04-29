@@ -16,65 +16,65 @@ class FileReader
         
         if (args.Length == 0)
         {
-            Console.WriteLine("Please provide a file path as an argument. Example: dotnet run myFile.txt");
+            Console.WriteLine($"{Text.pleaseProvideAFilePathAsAnArgument}");
             return;
         }
 
-        string searchTerm1 = "redWas pressed"; 
-        string searchTerm2 = "blueWas pressed";
-        string searchTerm3 = "greenWas pressed";
-        string searchTerm4 = "yellowWas pressed";
-        string seartchTerm5 = "redwas lit";
-        string seartchTerm6 = "bluewas lit";
-        string seartchTerm7 = "greenwas lit";
-        string seartchTerm8 = "yellowwas lit";
+        string searchTerm1 = $"{Text.redWasPressed}"; 
+        string searchTerm2 = $"{Text.blueWasPressed}";
+        string searchTerm3 = $"{Text.greenWasPressed}";
+        string searchTerm4 = $"{Text.yellowWasPressed}";
+        string seartchTerm5 = $"{Text.redWasLit}";
+        string seartchTerm6 = $"{Text.blueWasLit}";
+        string seartchTerm7 = $"{Text.greenWasLit}";
+        string seartchTerm8 = $"{Text.yellowWasLit}";
         
         
-            using (StreamReader sr = new StreamReader(args[0]))
+            using (StreamReader reader = new StreamReader(args[0]))
             {
                 string line;
-                while ((line = sr.ReadLine()) != null)
+                while ((line = reader.ReadLine()) != null)
                 {                    
                     if (line.Contains(searchTerm1))
                     {
                         counterRedWasPressed++; 
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                          
                     else if (line.Contains(searchTerm2))
                     {
                         counterBlueWasPressed++;
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                       else if (line.Contains(searchTerm3))
                     {
                         counterGreenWasPressed++;
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                       else if (line.Contains(searchTerm4))
                     {
                         counterYellowWasPressed++;
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                     else if (line.Contains(seartchTerm5))
                     {
                         counterRedWasLit++;
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                     else if (line.Contains(seartchTerm6))
                     {
                         counterBlueWasLit++;
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                     else if (line.Contains(seartchTerm7))
                     {
                         counterGreenWasLit++;
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                     else if (line.Contains(seartchTerm8))
                     {
                         counterYellowWasLit++;
-                        Console.WriteLine("Found: " + line);
+                        Console.WriteLine($"{Text.found} " + line);
                     }
                 }
                     double redPressedAtRightTime = (double)counterRedWasPressed / counterRedWasLit;
@@ -82,23 +82,23 @@ class FileReader
                     double greenPressedAtRightTime = (double)counterGreenWasPressed / counterGreenWasLit;
                     double yellowPressedAtRightTime = (double)counterYellowWasPressed / counterYellowWasLit;
 
-                    Console.WriteLine("Results:");
-                    Console.WriteLine($"Red was pressed {counterRedWasPressed} times");
-                    Console.WriteLine($"Red was lit {counterRedWasLit} times");
-                    Console.WriteLine($"Red was pressed at the right time {redPressedAtRightTime * 100}% of the time");
+                    Console.WriteLine($"{Text.results}");
+                    Console.WriteLine($"{Text.redWasPressedCount} {counterRedWasPressed} {Text.times}");
+                    Console.WriteLine($"{Text.redWasLitCount} {counterRedWasLit} {Text.times}");
+                    Console.WriteLine($"{Text.redWasPressedAtRightTime} {redPressedAtRightTime * 100}{Text.precentageOfTheTime}");
 
-                    Console.WriteLine($"Blue was pressed {counterBlueWasPressed} times");
-                    Console.WriteLine($"Blue was lit {counterBlueWasLit} times");
-                    Console.WriteLine($"Blue was pressed at the right time {bluePressedAtRightTime * 100}% of the time");
+                    Console.WriteLine($"{Text.blueWasPressedCount} {counterBlueWasPressed} {Text.times}");
+                    Console.WriteLine($"{Text.blueWasLitCount} {counterBlueWasLit} {Text.times}");
+                    Console.WriteLine($"{Text.blueWasPressedAtRightTime} {bluePressedAtRightTime * 100}{Text.precentageOfTheTime}");
 
-                    Console.WriteLine($"Green was pressed {counterGreenWasPressed} times");
-                    Console.WriteLine($"Green was lit {counterGreenWasLit} times");
-                    Console.WriteLine($"Green was pressed at the right time {greenPressedAtRightTime * 100}% of the time");
+                    Console.WriteLine($"{Text.greenWasPressedCount} {counterGreenWasPressed} {Text.times}");
+                    Console.WriteLine($"{Text.greenWasLitCount} {counterGreenWasLit} {Text.times}");
+                    Console.WriteLine($"{Text.greenWasPressedAtRightTime} {greenPressedAtRightTime * 100}{Text.precentageOfTheTime}");
 
 
-                    Console.WriteLine($"Yellow was pressed {counterYellowWasPressed} times");
-                    Console.WriteLine($"Yellow was lit {counterYellowWasLit} times");
-                    Console.WriteLine($"Yellow was pressed at the right time {yellowPressedAtRightTime * 100}% of the time");
+                    Console.WriteLine($"{Text.yellowWasPressedCount} {counterYellowWasPressed} {Text.times}");
+                    Console.WriteLine($"{Text.yellowWasLitCount} {counterYellowWasLit} {Text.times}");
+                    Console.WriteLine($"{Text.yellowWasPressedAtRightTime} {yellowPressedAtRightTime * 100}{Text.precentageOfTheTime}");
                    
             }
     }
